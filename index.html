@@ -1,0 +1,509 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>BiVariance</title>
+    <meta name="description" content="Measuring the bi-cycle: a personal SEM project on fluctuating attraction">
+    <meta name="author" content="BiVariance">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+    <style>
+      :root {
+        --pink:   #D6487E;
+        --purple: #8C4FA0;
+        --blue:   #4A7EC5;
+        --light-pink: #f7dce8;
+        --light-purple: #ede4f3;
+        --light-blue: #dce8f7;
+        --bg: #faf8fc;
+        --text: #1a1320;
+        --muted: #6b5f72;
+        --border: #e2d8ea;
+        --card-bg: #ffffff;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        font-family: 'DM Sans', sans-serif;
+        font-weight: 300;
+        background: var(--bg);
+        color: var(--text);
+        margin: 0;
+        min-height: 100vh;
+      }
+
+      /* ── HEADER ── */
+      #header {
+        background: var(--card-bg);
+        border-bottom: 1px solid var(--border);
+        padding: 2rem 2.5rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 16px rgba(140,79,160,0.06);
+      }
+
+      .header-top {
+        display: flex;
+        align-items: baseline;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      #header h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 0;
+        background: linear-gradient(90deg, var(--pink) 0%, var(--purple) 50%, var(--blue) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        letter-spacing: -0.5px;
+      }
+
+      .header-tag {
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      /* ── TABS ── */
+      .main-menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 0;
+        overflow-x: auto;
+      }
+
+      .main-menu li a {
+        display: block;
+        padding: 0.75rem 1.25rem;
+        font-size: 0.85rem;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        text-decoration: none;
+        color: var(--muted);
+        border-bottom: 2px solid transparent;
+        transition: color 0.2s, border-color 0.2s;
+        white-space: nowrap;
+      }
+
+      .main-menu li a:hover { color: var(--purple); }
+
+      .main-menu li a.active {
+        color: var(--purple);
+        border-bottom-color: var(--purple);
+      }
+
+      /* ── LAYOUT ── */
+      #container {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 3rem 2rem 4rem;
+      }
+
+      .content-region { display: none; }
+      .content-region.active { display: block; }
+
+      /* ── TYPOGRAPHY ── */
+      h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.9rem;
+        font-weight: 700;
+        margin: 0 0 0.35rem;
+        color: var(--text);
+        letter-spacing: -0.3px;
+      }
+
+      h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--purple);
+        margin: 2rem 0 0.5rem;
+      }
+
+      p {
+        line-height: 1.75;
+        color: #3a2f42;
+        margin: 0 0 1rem;
+        font-size: 0.95rem;
+      }
+
+      code {
+        font-size: 0.85em;
+        background: var(--light-purple);
+        color: var(--purple);
+        padding: 0.1em 0.4em;
+        border-radius: 3px;
+      }
+
+      a { color: var(--purple); }
+
+      .section-intro {
+        color: var(--muted);
+        font-size: 0.9rem;
+        font-style: italic;
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      /* ── CARDS ── */
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+
+      .card {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 1.25rem 1.4rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 3px;
+      }
+
+      .card.pink::before   { background: var(--pink); }
+      .card.purple::before { background: var(--purple); }
+      .card.blue::before   { background: var(--blue); }
+
+      .card h4 {
+        font-family: 'DM Sans', sans-serif;
+        font-weight: 500;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin: 0 0 0.5rem;
+        color: var(--muted);
+      }
+
+      .card p { font-size: 0.88rem; margin: 0; line-height: 1.6; }
+
+      /* ── CALLOUT ── */
+      .callout {
+        background: var(--light-purple);
+        border-left: 3px solid var(--purple);
+        border-radius: 0 8px 8px 0;
+        padding: 1rem 1.25rem;
+        margin: 1.5rem 0;
+        font-size: 0.9rem;
+        color: #3a2f42;
+        line-height: 1.65;
+      }
+
+      .callout strong { color: var(--purple); }
+
+      /* ── NOTES LIST ── */
+      .notes-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .notes-list li {
+        padding: 0.85rem 0 0.85rem 1.25rem;
+        border-bottom: 1px solid var(--border);
+        font-size: 0.9rem;
+        line-height: 1.65;
+        color: #3a2f42;
+        position: relative;
+      }
+
+      .notes-list li::before {
+        content: '—';
+        position: absolute;
+        left: 0;
+        color: var(--pink);
+        font-weight: 500;
+      }
+
+      .notes-list li:last-child { border-bottom: none; }
+      .notes-list li strong { color: var(--text); font-weight: 500; }
+
+      /* ── PULL QUOTE ── */
+      .pull-quote {
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
+        font-size: 1.1rem;
+        color: var(--muted);
+        border: none;
+        margin: 2rem 0;
+        padding: 0 0 0 1.5rem;
+        border-left: 3px solid var(--light-pink);
+        line-height: 1.7;
+      }
+
+      /* ── FLAG BAR ── */
+      .flag-bar {
+        display: flex;
+        height: 4px;
+        border-radius: 3px;
+        overflow: hidden;
+        margin: 0.4rem 0 2rem;
+      }
+      .flag-bar span:nth-child(1) { background: var(--pink);   flex: 2; }
+      .flag-bar span:nth-child(2) { background: var(--purple); flex: 1; }
+      .flag-bar span:nth-child(3) { background: var(--blue);   flex: 2; }
+
+      /* ── FOOTER ── */
+      footer {
+        text-align: center;
+        padding: 2rem;
+        font-size: 0.8rem;
+        color: var(--muted);
+        border-top: 1px solid var(--border);
+      }
+
+      .footer-flag {
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+        margin-bottom: 0.75rem;
+      }
+
+      .footer-flag span {
+        width: 8px; height: 8px;
+        border-radius: 50%;
+      }
+
+      .footer-flag span:nth-child(1) { background: var(--pink); }
+      .footer-flag span:nth-child(2) { background: var(--purple); }
+      .footer-flag span:nth-child(3) { background: var(--blue); }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 600px) {
+        #header { padding: 1.25rem 1.25rem 0; }
+        .header-top { flex-direction: column; gap: 0.25rem; margin-bottom: 1rem; }
+        .main-menu li a { padding: 0.65rem 0.85rem; font-size: 0.78rem; }
+        #container { padding: 2rem 1.25rem 3rem; }
+        h2 { font-size: 1.5rem; }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <header id="header">
+      <div class="header-top">
+        <h1>BiVariance</h1>
+        <span class="header-tag">measuring the bi-cycle</span>
+      </div>
+      <ul class="main-menu">
+        <li><a href="#home"    class="tab-link active">home</a></li>
+        <li><a href="#project" class="tab-link">the project</a></li>
+        <li><a href="#methods" class="tab-link">methods</a></li>
+        <li><a href="#tools"   class="tab-link">tools</a></li>
+        <li><a href="#notes"   class="tab-link">notes</a></li>
+      </ul>
+    </header>
+
+    <div id="container">
+      <div id="content">
+
+        <!-- ── HOME ── -->
+        <div id="home" class="content-region active">
+          <h2>What is this?</h2>
+          <div class="flag-bar"><span></span><span></span><span></span></div>
+
+          <blockquote class="pull-quote">
+            "Are you straight or gay?"<br>
+            "Hold on, let me get my data."
+          </blockquote>
+
+          <p>
+            The <strong>bi-cycle</strong> is a phenomenon widely discussed in bisexual and queer communities: the way attraction to people of different genders tends to shift and fluctuate over time. For many bisexuals, these fluctuations can fuel insecurity — doubt about whether they are "really bisexual", anxiety in relationships, or the feeling that their sexuality doesn't match expectations on any given day.
+          </p>
+          <p>
+            Despite being a common topic in queer spaces, the bi-cycle has received little formal academic attention. This project is an attempt to change that — or at least to kickstart the conversation about how it <em>could</em> be studied rigorously.
+          </p>
+
+          <div class="callout">
+            <strong>What you'll find here:</strong> a daily diary dataset collected over ~3 years, R scripts and a Shiny app for structural equation modelling, a browser-based tracker others can use to collect their own data, and an essay documenting the whole thing.
+          </div>
+
+          <p>
+            This is an independent, personal project. The author is not a psychologist or social scientist — they are a chemist who fell down a statistical rabbit hole and found it unexpectedly affirming. All tools used are free and open-source, and everything is shared here so that others can replicate, critique, and maybe add to it.
+          </p>
+
+          <blockquote class="pull-quote" style="font-size:0.95rem; margin-top:2.5rem;">
+            "The only relationships I've successfully maintained are within this dataset."
+          </blockquote>
+        </div>
+
+        <!-- ── THE PROJECT ── -->
+        <div id="project" class="content-region">
+          <h2>The Project</h2>
+          <div class="flag-bar"><span></span><span></span><span></span></div>
+          <p class="section-intro">How a Reddit meme became a three-year dataset.</p>
+
+          <h3>How it started</h3>
+          <p>
+            It started, as many things do, with memes on Reddit. After finding r/bisexual and recognising the bi-cycle in its discussions, tracking seemed like a funny idea. Over time, patterns seemed to emerge. Those patterns became hypotheses; those hypotheses became this project.
+          </p>
+
+          <h3>The data</h3>
+          <p>
+            Data was collected via a daily diary method over approximately three years (2023–2025), yielding ~1,096 observations. Each day, the following was recorded:
+          </p>
+
+          <div class="card-grid">
+            <div class="card pink">
+              <h4>Context</h4>
+              <p>Day of week and activity context: work, gym, social, education, inactive, or other.</p>
+            </div>
+            <div class="card purple">
+              <h4>Attraction indicators</h4>
+              <p>Attraction, fantasy, lust, romantic interest, and sexual activity — each recorded daily as binary or ordinal indicators.</p>
+            </div>
+            <div class="card blue">
+              <h4>Gender categories</h4>
+              <p>Directed toward men (M), androgynous people (X), and women (F). This structure supports polychoric correlations and WLSMV estimation.</p>
+            </div>
+          </div>
+
+          <h3>The latent variable problem</h3>
+          <p>
+            Attraction is unobservable. It is, in the language of statistics, a <strong>latent variable</strong> — something real and consequential, but not directly measurable. You can only get at it through the things it produces: feelings, fantasies, the way a stranger across a café might catch your eye. This makes it a natural candidate for <strong>structural equation modelling (SEM)</strong>, a family of multivariate techniques designed precisely for situations where the variables you care about most are the ones you can't directly observe.
+          </p>
+        </div>
+
+        <!-- ── METHODS ── -->
+        <div id="methods" class="content-region">
+          <h2>Methods</h2>
+          <div class="flag-bar"><span></span><span></span><span></span></div>
+          <p class="section-intro">SEM, MIMIC models, and a small simulation study.</p>
+
+          <h3>Structural equation modelling</h3>
+          <p>
+            The core analysis uses the <code>lavaan</code> package in R. The measurement model specifies three latent variables — <strong>Attraction</strong>, <strong>Fantasy</strong>, and <strong>Lust</strong> — each indicated by gender-specific observed items. The structural model then examines how daily context predicts these latent constructs, and how the constructs relate to each other.
+          </p>
+
+          <div class="callout">
+            <strong>Estimator:</strong> WLSMV (diagonally weighted least squares with mean and variance adjustment) — appropriate for binary and ordinal indicators. Model fit assessed using CFI, TLI, RMSEA, and SRMR.
+          </div>
+
+          <h3>MIMIC model</h3>
+          <p>
+            A Multiple Indicators, Multiple Causes (MIMIC) framework is used to examine how background variables — activity context, day of week, and others — influence the latent factors while accounting for measurement error. The Shiny app includes five built-in predictors and allows users to specify their own.
+          </p>
+
+          <h3>Simulation study</h3>
+          <p>
+            Because SEM estimation can be challenging with small samples, a simulation study was conducted to determine the minimum number of days that need to be tracked before the model can be estimated reliably. This informs guidance given to others who want to use the tracker and analyse their own data.
+          </p>
+        </div>
+
+        <!-- ── TOOLS ── -->
+        <div id="tools" class="content-region">
+          <h2>Tools</h2>
+          <div class="flag-bar"><span></span><span></span><span></span></div>
+          <p class="section-intro">Everything needed to replicate, explore, or run your own version.</p>
+
+          <div class="card-grid">
+            <div class="card pink">
+              <h4>Tracker</h4>
+              <p>A self-contained HTML file. Open in any modern browser — no installation or internet connection required. Export your data as CSV.</p>
+            </div>
+            <div class="card purple">
+              <h4>Shiny app</h4>
+              <p>Interactive R app with descriptive stats, MIMIC modelling, full SEM output, a calendar heatmap, and CSV downloads. Ships with embedded example data.</p>
+            </div>
+            <div class="card blue">
+              <h4>R scripts</h4>
+              <p>Standalone scripts for the analysis pipeline. Loads <code>lavaan</code>, casts variables as ordered factors, fits the WLSMV model, and exports results to CSV.</p>
+            </div>
+          </div>
+
+          <h3>Getting started</h3>
+          <p>
+            Download and install <a href="https://cran.r-project.org/">R</a> and <a href="https://posit.co/download/rstudio-desktop/">RStudio</a> (both free). Download the repository and extract it to a location of your choice. Run the Prerequisites script to install the required packages (<code>shiny</code>, <code>lavaan</code>, <code>DT</code>, <code>shinythemes</code>, <code>semPlot</code>), then open any script or the Shiny app from RStudio.
+          </p>
+
+          <h3>Using the tracker</h3>
+          <p>
+            Open <code>bicycle_tracker_final.html</code> in any modern browser (Chrome, Firefox, Safari, or Edge). No installation or internet connection is required. Your data is stored locally in your browser until you export it as a CSV file, which can then be used directly with the R scripts and Shiny app.
+          </p>
+
+          <h3>Shiny app features</h3>
+          <p>
+            The app includes stacked proportional bar charts of attraction by gender displayed in bi flag colours, the full MIMIC model interface with customisable predictors, structural estimates and fit measures, a day-by-day calendar heatmap of gender-bias scores, and CSV downloads of all parameter estimates and model coefficients. It can be explored immediately using the embedded example data.
+          </p>
+        </div>
+
+        <!-- ── NOTES ── -->
+        <div id="notes" class="content-region">
+          <h2>Notes &amp; Acknowledgements</h2>
+          <div class="flag-bar"><span></span><span></span><span></span></div>
+          <p class="section-intro">A few things worth keeping in mind.</p>
+
+          <ul class="notes-list">
+            <li><strong>Data collected by one person is specific to that person.</strong> It is not possible to draw conclusions from this data about bisexuals in general.</li>
+            <li><strong>The analyses are exploratory and proof-of-concept in nature.</strong> No claims are made about bisexuals as a population.</li>
+            <li><strong>Self-report limitations apply.</strong> Daily diary data is subject to recall bias, mood effects, and the general messiness of asking someone to quantify something as slippery as attraction.</li>
+            <li><strong>The measurement model is theory-driven but not validated on an independent sample.</strong> The simulation study addresses robustness; external validation awaits future research.</li>
+            <li><strong>Gender categories.</strong> The three categories used (M, X, F) are a practical simplification. Gender is more complex than this, and nobody owes you a specific pattern of attraction or gender presentation.</li>
+          </ul>
+
+          <h3>Acknowledgements</h3>
+          <p>
+            This project draws on community knowledge from the r/bisexual subreddit and wider bi and queer online spaces, as well as the published literature on bisexual identity, measurement of sexual orientation, and structural equation modelling. All software used is free and open-source. A full bibliography is available in the accompanying essay.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-flag">
+        <span></span><span></span><span></span>
+      </div>
+      BiVariance &nbsp;·&nbsp; an independent personal project
+    </footer>
+
+    <script type="text/javascript">
+      document.querySelectorAll('.tab-link').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          var target = this.getAttribute('href').slice(1);
+
+          document.querySelectorAll('.tab-link').forEach(function(l) { l.classList.remove('active'); });
+          this.classList.add('active');
+
+          document.querySelectorAll('.content-region').forEach(function(r) { r.classList.remove('active'); });
+          var el = document.getElementById(target);
+          if (el) el.classList.add('active');
+
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      });
+
+      window.addEventListener('load', function() {
+        var hash = window.location.hash.slice(1);
+        if (hash) {
+          var link = document.querySelector('.tab-link[href="#' + hash + '"]');
+          if (link) link.click();
+        }
+      });
+    </script>
+
+  </body>
+</html>
