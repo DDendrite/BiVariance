@@ -289,7 +289,157 @@
       .footer-flag span:nth-child(2) { background: var(--purple); }
       .footer-flag span:nth-child(3) { background: var(--blue); }
 
-      /* ── RESPONSIVE ── */
+      /* ── PDF VIEWER ── */
+      .pdf-actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.55rem 1.1rem;
+        border-radius: 6px;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.85rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: opacity 0.2s, transform 0.15s;
+        cursor: pointer;
+        border: none;
+      }
+
+      .btn:hover { opacity: 0.85; transform: translateY(-1px); }
+
+      .btn-primary {
+        background: var(--purple);
+        color: #fff;
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: var(--purple);
+        border: 1.5px solid var(--purple);
+      }
+
+      .pdf-embed-wrapper {
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        overflow: hidden;
+        background: var(--card-bg);
+      }
+
+      .pdf-embed-wrapper iframe {
+        display: block;
+        width: 100%;
+        height: 75vh;
+        min-height: 500px;
+        border: none;
+      }
+
+      .pdf-placeholder {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        padding: 4rem 2rem;
+        text-align: center;
+        color: var(--muted);
+      }
+
+      .pdf-placeholder .pdf-icon {
+        font-size: 3rem;
+        opacity: 0.35;
+      }
+
+      .pdf-placeholder p {
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin: 0;
+      }
+
+      /* ── GET STARTED ── */
+      .github-link-box {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 1.25rem 1.5rem;
+        margin: 1.5rem 0;
+        text-decoration: none;
+        transition: border-color 0.2s, box-shadow 0.2s;
+      }
+
+      .github-link-box:hover {
+        border-color: var(--purple);
+        box-shadow: 0 2px 12px rgba(140,79,160,0.1);
+      }
+
+      .github-icon {
+        flex-shrink: 0;
+        width: 36px;
+        height: 36px;
+        opacity: 0.7;
+      }
+
+      .github-link-box .gh-label {
+        font-weight: 500;
+        font-size: 0.9rem;
+        color: var(--text);
+        display: block;
+        margin-bottom: 0.1rem;
+      }
+
+      .github-link-box .gh-sub {
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+
+      .step-list {
+        counter-reset: steps;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .step-list li {
+        counter-increment: steps;
+        display: flex;
+        gap: 1rem;
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 0.9rem;
+        line-height: 1.65;
+        color: #3a2f42;
+        align-items: flex-start;
+      }
+
+      .step-list li:last-child { border-bottom: none; }
+
+      .step-list li::before {
+        content: counter(steps);
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: var(--light-purple);
+        color: var(--purple);
+        font-size: 0.75rem;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0.1rem;
+      }
+
+
       @media (max-width: 600px) {
         #header { padding: 1.25rem 1.25rem 0; }
         .header-top { flex-direction: column; gap: 0.25rem; margin-bottom: 1rem; }
@@ -313,6 +463,8 @@
         <li><a href="#methods" class="tab-link">methods</a></li>
         <li><a href="#tools"   class="tab-link">tools</a></li>
         <li><a href="#notes"   class="tab-link">notes</a></li>
+        <li><a href="#start"   class="tab-link">get started</a></li>
+        <li><a href="#essay"   class="tab-link">essay</a></li>
       </ul>
     </header>
 
@@ -469,10 +621,77 @@
           </p>
         </div>
 
-      </div>
-    </div>
+        <!-- ── GET STARTED ── -->
+        <div id="start" class="content-region">
+          <h2>Get Started</h2>
+          <div class="flag-bar"><span></span><span></span><span></span></div>
+          <p class="section-intro">Everything you need is in one place — free, open-source, and ready to use.</p>
 
-    <footer>
+          <p>
+            This project is fully open. The repository contains the tracker, the R scripts, the Shiny app, the dataset, and the essay. You can download everything, run the analysis on the provided data, or collect your own data using the tracker and analyse that instead.
+          </p>
+
+          <!-- ↓ Replace the href with your repository URL when ready -->
+          <a href="https://github.com/YOUR-USERNAME/bi-metrics" class="github-link-box" target="_blank" rel="noopener">
+            <svg class="github-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.744 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z" fill="currentColor"/>
+            </svg>
+            <div>
+              <span class="gh-label">bi-metrics on GitHub</span>
+              <span class="gh-sub">github.com/YOUR-USERNAME/bi-metrics</span>
+            </div>
+          </a>
+
+          <h3>Quick setup</h3>
+          <ol class="step-list">
+            <li>Download and install <a href="https://cran.r-project.org/">R</a> and <a href="https://posit.co/download/rstudio-desktop/">RStudio</a> — both are free.</li>
+            <li>Download or clone the repository and extract it to a location of your choice.</li>
+            <li>Open RStudio and run the <code>prerequisites.R</code> script to install required packages (<code>shiny</code>, <code>lavaan</code>, <code>DT</code>, <code>shinythemes</code>, <code>semPlot</code>).</li>
+            <li>Open any R script or the Shiny app directly from the folder in RStudio. The Shiny app comes preloaded with the example dataset — no upload needed to explore it.</li>
+            <li>To collect your own data, open <code>bicycle_tracker_final.html</code> in any modern browser. No installation or internet connection required. Export your data as CSV when you're ready to analyse it.</li>
+          </ol>
+
+          <div class="callout" style="margin-top: 2rem;">
+            Not sure how many days you need to track before the model will run? The simulation study included in the repository gives guidance on the minimum required observations.
+          </div>
+        </div>
+
+        <!-- ── ESSAY ── -->
+        <div id="essay" class="content-region">
+          <h2>Essay</h2>
+          <div class="flag-bar"><span></span><span></span><span></span></div>
+          <p class="section-intro">A detailed account of the project, its methods, and its findings.</p>
+
+          <div class="pdf-actions">
+            <!-- ↓ Replace both hrefs with the path to your PDF file, e.g. "essay.pdf" -->
+            <a href="essay.pdf" class="btn btn-primary" download>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
+            </a>
+            <a href="essay.pdf" class="btn btn-outline" target="_blank" rel="noopener">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Open in new tab
+            </a>
+          </div>
+
+          <div class="pdf-embed-wrapper">
+            <!-- ↓ Replace src with the path to your PDF file, e.g. "essay.pdf" -->
+            <iframe src="essay.pdf" title="BiVariance Essay">
+              <!-- Shown if the browser can't render the iframe -->
+              <div class="pdf-placeholder">
+                <div class="pdf-icon">📄</div>
+                <p>Your browser can't display PDFs inline.</p>
+                <p><a href="essay.pdf">Download the essay here.</a></p>
+              </div>
+            </iframe>
+          </div>
+
+          <p style="margin-top: 1rem; font-size: 0.82rem; color: var(--muted);">
+            If the essay doesn't load, try the download or open-in-new-tab buttons above. Some browsers block inline PDFs depending on their security settings.
+          </p>
+        </div>
+
+
       <div class="footer-flag">
         <span></span><span></span><span></span>
       </div>
