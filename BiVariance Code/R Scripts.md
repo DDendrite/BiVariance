@@ -1,3 +1,4 @@
+Tags: #META
 # Initial analyses
 [[Descriptive statistics]]
 [[Reliability analysis]]
@@ -9,7 +10,9 @@
 
 
 # MIMIC models
-
+[[MIMIC Model - Attraction]]
+[[MIMIC Model - Romanticism]]
+[[MIMIC Model - Eroticism]]
 
 # Structural equation models
 

@@ -1,3 +1,4 @@
+Tags: #MIMIC 
 # Multiple Indicator Multiple Cause Model of location on Romanticism
 # Lavaan syntax
 ```
