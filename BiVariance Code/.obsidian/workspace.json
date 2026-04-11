@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "75d7ae541de31472",
+        "id": "0aeba0d1b09b3cd3",
         "type": "tabs",
         "children": [
           {
-            "id": "c4e5b73c8f98d3fc",
+            "id": "c9009092e816ed22",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -176,6 +176,9 @@
       "bases:Create new base": false
     }
   },
-  "active": "c4e5b73c8f98d3fc",
-  "lastOpenFiles": []
+  "active": "c9009092e816ed22",
+  "lastOpenFiles": [
+    "Templates/Analysis template.md",
+    "Templates"
+  ]
 }
