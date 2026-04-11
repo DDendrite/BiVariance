@@ -1,2 +1,3 @@
-# Ignored files
+*.Rhistory
+*.Rdata
 BiVariance Code/.obsidian/workspace.json
