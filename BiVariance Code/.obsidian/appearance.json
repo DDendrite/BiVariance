@@ -1,1 +1,7 @@
-{}
+{
+  "interfaceFontFamily": "Linux Libertine G",
+  "textFontFamily": "Linux Libertine G",
+  "monospaceFontFamily": "Linux Libertine Display G",
+  "baseFontSize": 16,
+  "nativeMenus": true
+}
