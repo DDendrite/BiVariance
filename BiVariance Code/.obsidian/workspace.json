@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "0aeba0d1b09b3cd3",
+        "id": "bf1ccab4a3b904bd",
         "type": "tabs",
         "children": [
           {
-            "id": "c9009092e816ed22",
+            "id": "3f2f602708310547",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -176,9 +176,16 @@
       "bases:Create new base": false
     }
   },
-  "active": "c9009092e816ed22",
+  "active": "3f2f602708310547",
   "lastOpenFiles": [
+    "Reliability analysis.md",
+    "Reliability_Table.csv",
     "Templates/Analysis template.md",
+    "Descriptive statistics.md",
+    "Reliability.R",
+    "Summary_Table.csv",
+    "Descriptives.R",
+    "Bi-cycle_data.csv",
     "Templates"
   ]
 }

@@ -1,0 +1,79 @@
+# Loading libraries
+library(lavaan)
+library(semTools)
+
+# Loading data file
+data <- read.csv("Bi-cycle_data.csv")
+
+# Specifying factors
+Masculine <-'
+ Masculine =~ M_Atr + M_Rom + M_Ero
+'
+
+Androgynous <-'
+Androgynous =~ X_Atr + X_Rom + X_Ero
+'
+
+Feminine <-'
+ Feminine =~ F_Atr + F_Rom + F_Ero
+'
+
+Attraction <-'
+Attraction =~ M_Atr + X_Atr + F_Atr
+'
+
+Romanticism <-'
+ Romanticism =~ M_Rom + X_Rom + F_Rom
+'
+
+Eroticism <-'
+Eroticism =~ M_Ero + X_Ero + F_Ero
+'
+
+Relationship <-'
+Relationship =~ M_Rel + X_Rel + F_Rel
+'
+
+Intimacy <-'
+Intimacy =~ M_Int + X_Int + F_Int
+'
+
+# Fitting gender specific factors
+Masc <- lavaan(Masculine, data, std.lv = TRUE, ordered = TRUE, estimator = "WLSMV")
+Andro <- lavaan(Androgynous, data, std.lv = TRUE, ordered = TRUE, estimator = "WLSMV")
+Fem <- lavaan(Feminine, data, std.lv = TRUE, ordered = TRUE, estimator = "WLSMV")
+
+# Fitting aspect specific factors
+Atr <- lavaan(Attraction, data, std.lv = TRUE, ordered = TRUE, estimator = "WLSMV")
+Rom <- lavaan(Romanticism, data, std.lv = TRUE, ordered = TRUE, estimator = "WLSMV")
+Ero <- lavaan(Eroticism, data, std.lv = TRUE, ordered = TRUE, estimator = "WLSMV")
+
+Rel <- lavaan(Relationship, data, std.lv = TRUE, ordered = TRUE, estimator = "WLSMV")
+Int <- lavaan(Intimacy, data, std.lv = TRUE, ordered = TRUE, estimator = "WLSMV")
+
+# Calculating reliability scores
+Masc_Alpha <- compRelSEM(Masc, obs.var = TRUE, tau.eq = TRUE, ord.scale = TRUE)
+Masc_Omega <- compRelSEM(Masc, obs.var = TRUE, tau.eq = FALSE, ord.scale = TRUE)
+Andro_Alpha <- compRelSEM(Andro, obs.var = TRUE, tau.eq = TRUE, ord.scale = TRUE)
+Andro_Omega <- compRelSEM(Andro, obs.var = TRUE, tau.eq = FALSE, ord.scale = TRUE)
+Fem_Alpha <- compRelSEM(Fem, obs.var = TRUE, tau.eq = TRUE, ord.scale = TRUE)
+Fem_Omega <- compRelSEM(Fem, obs.var = TRUE, tau.eq = FALSE, ord.scale = TRUE)
+Atr_Alpha <- compRelSEM(Atr, obs.var = TRUE, tau.eq = TRUE, ord.scale = TRUE)
+Atr_Omega <- compRelSEM(Atr, obs.var = TRUE, tau.eq = FALSE, ord.scale = TRUE)
+Rom_Alpha <- compRelSEM(Rom, obs.var = TRUE, tau.eq = TRUE, ord.scale = TRUE)
+Rom_Omega <- compRelSEM(Rom, obs.var = TRUE, tau.eq = FALSE, ord.scale = TRUE)
+Ero_Alpha <- compRelSEM(Ero, obs.var = TRUE, tau.eq = TRUE, ord.scale = TRUE)
+Ero_Omega <- compRelSEM(Ero, obs.var = TRUE, tau.eq = FALSE, ord.scale = TRUE)
+Rel_Alpha <- compRelSEM(Rel, obs.var = TRUE, tau.eq = TRUE, ord.scale = TRUE)
+Rel_Omega <- compRelSEM(Rel, obs.var = TRUE, tau.eq = FALSE, ord.scale = TRUE)
+Int_Alpha <- compRelSEM(Int, obs.var = TRUE, tau.eq = TRUE, ord.scale = TRUE)
+Int_Omega <- compRelSEM(Int, obs.var = TRUE, tau.eq = FALSE, ord.scale = TRUE)
+
+# Table
+reliability_Table <- data.frame(
+  CronbachsAlpha =      c(Masc_Alpha, Andro_Alpha, Fem_Alpha, Atr_Alpha, Rom_Alpha, Ero_Alpha, Rel_Alpha, Int_Alpha),
+  McDondaldsOmega =     c(Masc_Omega, Andro_Omega, Fem_Omega, Atr_Omega, Rom_Omega, Ero_Omega, Rel_Omega, Int_Omega)
+)
+
+# Exporting results
+write.csv(reliability_Table,"Reliability_Table.csv", row.names = TRUE)
