@@ -1,25 +1,25 @@
 Tags: #META
 # Initial analyses
-[[Initial - Descriptive statistics]]
-[[Initial - Reliability analysis]]
+[[1. Initial - Descriptive statistics]]
+[[1.1 Initial - Reliability analysis]]
 
 # Path analysis
-[[Path analysis - Intro]]
-[[Path analysis - Attraction by location]]
-[[Path analysis - Romanticism by location]]
-[[Path analysis - Eroticism by location]]
-[[Path analysis - Same day gender correlation]]
-[[Path analysis - Gender autoregressive cross lagged model]]
-[[Path analysis - Gender by location]]
-[[Path analysis - Gender by location corrected for previous day]]
+[[2. Path analysis - Intro]]
+[[2.1 Path analysis - Attraction by location]]
+[[2.2 Path analysis - Romanticism by location]]
+[[2.3 Path analysis - Eroticism by location]]
+[[2.4 Path analysis - Same day gender correlation]]
+[[2.5 Path analysis - Gender autoregressive cross lagged model]]
+[[2.6 Path analysis - Gender by location]]
+[[2.7 Path analysis - Gender by location corrected for previous day]]
 
 # Confirmatory factor analysis
 
 
 # MIMIC models
-[[MIMIC Model - Attraction]]
-[[MIMIC Model - Romanticism]]
-[[MIMIC Model - Eroticism]]
+[[3.1 MIMIC Model - Attraction]]
+[[3.2 MIMIC Model - Romanticism]]
+[[3.3 MIMIC Model - Eroticism]]
 
 # Structural equation models
 
