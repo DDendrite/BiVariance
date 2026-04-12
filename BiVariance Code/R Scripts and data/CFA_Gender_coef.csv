@@ -1,0 +1,13 @@
+"","x"
+"Masculine=~M_Atr",0.586409213519278
+"Masculine=~M_Rom",0.488272145947231
+"Masculine=~M_Ero",0.252616974936798
+"Androgynous=~X_Atr",0.168771032776592
+"Androgynous=~X_Rom",0.358715234428065
+"Androgynous=~F_Ero",0.189296340598597
+"Feminine=~F_Atr",207.718938287654
+"Feminine=~X_Rom",-0.00357733302845066
+"Feminine=~F_Ero",-0.00131375518455825
+"Masculine~~Androgynous",2.78821805069318
+"Masculine~~Feminine",0.00489958030432774
+"Androgynous~~Feminine",0.0116541621852583

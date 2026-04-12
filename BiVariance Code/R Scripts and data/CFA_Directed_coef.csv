@@ -1,0 +1,13 @@
+"","x"
+"Attraction=~M_Atr",0.934900264494004
+"Attraction=~X_Atr",0.458553365063005
+"Attraction=~F_Atr",0.785505950296016
+"Romanticism=~M_Rom",0.83605580644286
+"Romanticism=~X_Rom",0.837692544796992
+"Romanticism=~F_Rom",0.881290342075937
+"Eroticism=~M_Ero",0.79517282722933
+"Eroticism=~X_Ero",0.858570877508845
+"Eroticism=~F_Ero",0.685548240378713
+"Romanticism~Attraction",0.226935048650214
+"Eroticism~Attraction",0.0940666458602171
+"Eroticism~Romanticism",0.160187378520466
