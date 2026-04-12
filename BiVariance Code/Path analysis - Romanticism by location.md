@@ -1,0 +1,29 @@
+Tags: #Analysis 
+# Estimating the effect of location on romanticism across genders based on location
+# Lavaan syntax
+```
+Path_Rom <-'
+# Regressions
+M_Rom ~ Inactive + Education + Work + Gym + Social
+X_Rom ~ Inactive + Education + Work + Gym + Social
+F_Rom ~ Inactive + Education + Work + Gym + Social
+
+# (residual) (co)variances 
+ Inactive ~~ Education
+ Inactive ~~ Gym
+ Inactive ~~ Work
+ Inactive ~~ Social
+ Education ~~ Gym
+ Education ~~ Work
+ Education ~~ Social
+ Gym ~~ Work
+ Gym ~~ Social
+ Work ~~ Social
+'
+```
+# Path diagram
+
+# R Code snippet
+![[PATH_Rom.R]]
+# Generated data
+![[Path_Rom_Estimates.csv]]

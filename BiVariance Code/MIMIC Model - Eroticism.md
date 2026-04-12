@@ -24,8 +24,6 @@ MIMIC_Ero_model <-'
 ```
 # Path diagram
 
-# Remarks
-Model fits well. Eroticism has noticeably low loadings across genders. The model suggests staying at home is associated with an increase in eroticism. The same applies to going to the gym but in a lower extent. Attending college shows a decrease in eroticism.
 # R Code snippet
 ![[MIMIC_Ero_model.R]]
 # Generated data

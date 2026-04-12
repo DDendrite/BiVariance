@@ -24,10 +24,6 @@ MIMIC_Atr_model <-'
 ```
 # Path diagram
 
-# Remarks
-The model fits well. The model suggests staying at home or going to work is associated with a decrease in attraction, while suggesting that going to social spaces increases attraction. Attraction to people of non-binary people or androgyny loads poorly on attraction, this might due to overall lower frequency compared to attraction to men and women.
-# Model output
-
 # R Code snippet
 ![[MIMIC_Atr_model.R]]
 # Generated data

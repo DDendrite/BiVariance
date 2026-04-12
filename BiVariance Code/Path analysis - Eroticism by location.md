@@ -1,0 +1,29 @@
+Tags: #Analysis 
+# Estimating the effect of location on eroticism across genders based on location
+# Lavaan syntax
+```
+Path_Ero <-'
+# Regressions
+M_Ero ~ Inactive + Education + Work + Gym + Social
+X_Ero ~ Inactive + Education + Work + Gym + Social
+F_Ero ~ Inactive + Education + Work + Gym + Social
+
+# (residual) (co)variances 
+ Inactive ~~ Education
+ Inactive ~~ Gym
+ Inactive ~~ Work
+ Inactive ~~ Social
+ Education ~~ Gym
+ Education ~~ Work
+ Education ~~ Social
+ Gym ~~ Work
+ Gym ~~ Social
+ Work ~~ Social
+'
+```
+# Path diagram
+
+# R Code snippet
+![[PATH_Ero.R]]
+# Generated data
+![[Path_Ero_Estimates.csv]]

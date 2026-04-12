@@ -24,8 +24,6 @@ MIMIC_Rom_model <-'
 ```
 # Path diagram
 
-# Remarks
-Model fits well. Model only suggests that going to work is associated with lower consumption of romantic media or romantic fantasies.
 # R Code snippet
 ![[MIMIC_Rom_model.R]]
 # Generated data
