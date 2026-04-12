@@ -1,0 +1,41 @@
+Tags: #Analysis 
+# Determining the correlation between gender from day before
+# Lavaan syntax
+```
+Path_Gender_ARCL <- '
+# Regression
+M ~ M_Z + X_Z + F_Z
+X ~ M_Z + X_Z + F_Z
+F ~ M_Z + X_Z + F_Z
+
+M_B ~ M + X + F
+X_B ~ M + X + F
+F_B ~ M + X + F
+
+M_C ~ M_B + X_B + F_B
+X_C ~ M_B + X_B + F_B
+F_C ~ M_B + X_B + F_B
+
+# (residual) (co)variances 
+M_Z ~~ X_Z
+M_Z ~~ F_Z
+X_Z ~~ F_Z
+
+M ~~ X
+M ~~ F
+X ~~ F
+
+M_B ~~ X_B
+M_B ~~ F_B
+X_B ~~ F_B
+
+M_C ~~ X_C
+M_C ~~ F_C
+X_C ~~ F_C
+'
+```
+# Path diagram
+# R Code snippet
+![[PATH_Gender_ARCL.R]]
+# Generated data
+![[Path_Gender_ARCL_Estimates.csv]]

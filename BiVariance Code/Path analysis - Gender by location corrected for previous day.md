@@ -1,0 +1,51 @@
+Tags: #Analysis 
+# Estimating the effect of location on gender Attraction, Romanticism and Eroticism corrected for previous day's gender
+# Lavaan syntax
+```
+Path_Gender_Location2 <-'
+# Regressions
+M ~ Inactive + Education + Work + Gym + Social + M_Z
+X ~ Inactive + Education + Work + Gym + Social + X_Z
+F ~ Inactive + Education + Work + Gym + Social + F_Z
+
+# (residual) (co)variances 
+ Inactive ~~ Education
+ Inactive ~~ Gym
+ Inactive ~~ Work
+ Inactive ~~ Social
+ Education ~~ Gym
+ Education ~~ Work
+ Education ~~ Social
+ Gym ~~ Work
+ Gym ~~ Social
+ Work ~~ Social
+ 
+ M_Z ~~ Inactive
+ M_Z ~~ Education
+ M_Z ~~ Gym
+ M_Z ~~ Work
+ M_Z ~~ Social
+ 
+ X_Z ~~ Inactive
+ X_Z ~~ Education
+ X_Z ~~ Gym
+ X_Z ~~ Work
+ X_Z ~~ Social
+ 
+ F_Z ~~ Inactive
+ F_Z ~~ Education
+ F_Z ~~ Gym
+ F_Z ~~ Work
+ F_Z ~~ Social
+ 
+ M_Z ~~ X_Z
+ M_Z ~~ F_Z
+ X_Z ~~ F_Z
+'
+```
+# Path diagram
+
+# R Code snippet
+![[PATH_Gender_Location2.R]]
+# Generated data
+![[Path_Gender_Location_Estimates2.csv]]
