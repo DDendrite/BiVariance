@@ -1,0 +1,3 @@
+"","Df","AIC","BIC","Chisq","Chisq diff","RMSEA","Df diff","Pr(>Chisq)"
+"PastvsLocationRelaxed_Fit",197,NA,NA,198.666361633711,NA,NA,NA,NA
+"PastvsLocationStrict_fit",206,NA,NA,222.691125319229,24.9834761943,0.0390280895857724,9,0.0029895134251074

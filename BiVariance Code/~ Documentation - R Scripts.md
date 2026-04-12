@@ -20,7 +20,9 @@ Tags: #META
 [[3.2 MIMIC Model - Romanticism]]
 [[3.3 MIMIC Model - Eroticism]]
 # Structural equation models
+[[5.1 SEM - Location on Factors]]
 
 
+[[5.4 SEM - Final model]]
 # Monte Carlo Simulations
 
