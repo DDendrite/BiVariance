@@ -1,7 +1,7 @@
 Tags: #META
 # Initial analyses
-[[Descriptive statistics]]
-[[Reliability analysis]]
+[[Initial - Descriptive statistics]]
+[[Initial - Reliability analysis]]
 
 # Path analysis
 [[Path analysis - Intro]]
