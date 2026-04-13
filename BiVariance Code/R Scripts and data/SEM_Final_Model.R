@@ -52,9 +52,6 @@ Education ~~ Social
 Gym ~~ Work
 Gym ~~ Social
 Work ~~ Social
-Rom0 ~ Atr0
-Ero0 ~ Atr0
-Ero0 ~ Rom0
 
 # Covariances between lagged factors and location
 AtrZ ~~ Inactive
@@ -132,9 +129,6 @@ Education ~~ Social
 Gym ~~ Work
 Gym ~~ Social
 Work ~~ Social
-Rom0 ~ Atr0
-Ero0 ~ Atr0
-Ero0 ~ Rom0
 
 # Covariances between lagged factors and location
 AtrZ ~~ Inactive
