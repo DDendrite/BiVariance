@@ -30,5 +30,7 @@ Path_Atr_fit <- sem(Path_Atr, data)
 summary(Path_Atr_fit, standardized = FALSE)
 
 # Exporting model results
-write.csv(parameterestimates(Path_Atr_fit),"Path_Atr_Estimates.csv", row.names = TRUE)
-
+write.csv(parameterestimates(Path_Atr_fit),"Path_Atr_estimates.csv", row.names = TRUE)
+write.csv(coef(Path_Atr_fit),"Path_Atr_coef.csv", row.names = TRUE)
+write.csv(fitMeasures(Path_Atr_fit,c("chisq","df","pvalue","cfi","tli","RMSEA","SRMR")),"Path_Atr_fitmeasures.csv", row.names = TRUE)
+write.csv(resid(Path_Atr_fit),"Path_Atr_residuals.csv", row.names = TRUE)

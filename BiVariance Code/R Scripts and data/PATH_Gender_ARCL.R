@@ -43,4 +43,7 @@ Path_Gender_ARCL_fit <- sem(Path_Gender_ARCL, data)
 summary(Path_Gender_ARCL_fit, standardized = FALSE)
 
 # Exporting model results
-write.csv(parameterestimates(Path_Gender_ARCL_fit),"Path_Gender_ARCL_Estimates.csv", row.names = TRUE)
+write.csv(parameterestimates(Path_Gender_ARCL_fit),"Path_Gender_ARCL_estimates.csv", row.names = TRUE)
+write.csv(coef(Path_Gender_ARCL_fit),"Path_Gender_ARCL_coef.csv", row.names = TRUE)
+write.csv(fitMeasures(Path_Gender_ARCL_fit,c("chisq","df","pvalue","cfi","tli","RMSEA","SRMR")),"Path_Gender_ARCL_fitmeasures.csv", row.names = TRUE)
+write.csv(resid(Path_Gender_ARCL_fit),"Path_Gender_ARCL_residuals.csv", row.names = TRUE)

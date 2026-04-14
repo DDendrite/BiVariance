@@ -30,4 +30,7 @@ Path_Ero_fit <- sem(Path_Ero, data)
 summary(Path_Ero_fit, standardized = FALSE)
 
 # Exporting model results
-write.csv(parameterestimates(Path_Ero_fit),"Path_Ero_Estimates.csv", row.names = TRUE)
+write.csv(parameterestimates(Path_Ero_fit),"Path_Ero_estimates.csv", row.names = TRUE)
+write.csv(coef(Path_Ero_fit),"Path_Ero_coef.csv", row.names = TRUE)
+write.csv(fitMeasures(Path_Ero_fit,c("chisq","df","pvalue","cfi","tli","RMSEA","SRMR")),"Path_Ero_fitmeasures.csv", row.names = TRUE)
+write.csv(resid(Path_Ero_fit),"Path_Ero_residuals.csv", row.names = TRUE)

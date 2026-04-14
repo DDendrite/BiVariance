@@ -52,4 +52,7 @@ Path_Gender_Location_fit2 <- sem(Path_Gender_Location2, data)
 summary(Path_Gender_Location_fit2, standardized = FALSE)
 
 # Exporting model results
-write.csv(parameterestimates(Path_Gender_Location_fit2),"Path_Gender_Location_Estimates2.csv", row.names = TRUE)
+write.csv(parameterestimates(Path_Gender_Location_fit2),"Path_Gender_Location2_estimates.csv", row.names = TRUE)
+write.csv(coef(Path_Gender_Location_fit2),"Path_Gender_Location2_coef.csv", row.names = TRUE)
+write.csv(fitMeasures(Path_Gender_Location_fit2,c("chisq","df","pvalue","cfi","tli","RMSEA","SRMR")),"Path_Gender_Location2_fitmeasures.csv", row.names = TRUE)
+write.csv(resid(Path_Gender_Location_fit2),"Path_Gender_Location2_residuals.csv", row.names = TRUE)
