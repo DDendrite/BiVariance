@@ -4,3 +4,4 @@ Tags: #META
 
 # Contents
 [[~ Documentation - R Scripts]]
+[[6. Monte Carlo Simulation]]
