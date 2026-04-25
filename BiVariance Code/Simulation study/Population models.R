@@ -2,18 +2,19 @@
 library(lavaan)
 library(simsem)
 library(dplyr)
-library(purrr)
 
-# Loadinpurrr# Loading models:
-# Model 1: Attraction MIMIC model
-# Model 2: Attraction test of stationarity
-# Model 3: Measurement model / CFA of aspect factors
-# Model 4: Effect of location on aspect factors with mediation between factors
-# Model 5: Effect of location on aspect factors against previous day effects, with contemporaneous and AR1 mediation.
-#####
-# Models
-#####
-model1 <-'
+# Making this analysis reproducible
+set.seed(2429252)
+
+# Variables
+nRep <- 1000
+samplesize <- 1095
+
+# Loading data file
+data <- read.csv("Bi-cycle_data.csv")
+
+# Specifying the analysis model:  
+popmodel1 <-'
 # measurement model
  Attraction =~ M_Atr + X_Atr + F_Atr
 
@@ -33,7 +34,7 @@ model1 <-'
  Work ~~ Social
 '
 #####
-model2 <- '
+popmodel2 <- '
   # Measurement model
   Atr_Z =~ L1*M_Atr_Z + L2*X_Atr_Z + L3*F_Atr_Z
   Atr_0 =~ L1*M_Atr   + L2*X_Atr   + L3*F_Atr
@@ -68,7 +69,7 @@ model2 <- '
   F_Atr_B ~~ ar3*F_Atr_C
 '
 #####
-model3 <- '
+popmodel3 <- '
  Attraction =~ M_Atr + X_Atr + F_Atr
  Romanticism =~ M_Rom + X_Rom + F_Rom
  Eroticism =~ M_Ero + X_Ero + F_Ero
@@ -78,7 +79,7 @@ model3 <- '
  Eroticism ~~ Romanticism
 '
 #####
-model4 <- '
+popmodel4 <- '
 # measurement model
  Attraction =~ M_Atr + X_Atr + F_Atr
  Romanticism =~ M_Rom + X_Rom + F_Rom
@@ -109,7 +110,7 @@ model4 <- '
  Eroticism ~ Romanticism
 '
 #####
-model5 <- '
+popmodel5 <- '
 # Lagged factors
 AtrZ =~ M_Atr_Z + X_Atr_Z + F_Atr_Z
 RomZ =~ M_Rom_Z + X_Rom_Z + F_Rom_Z
@@ -180,29 +181,17 @@ AtrZ ~~ EroZ
 RomZ ~~ EroZ
 '
 
-# Loading data file
-data <- read.csv("Bi-cycle_data.csv")
+# Use simsem to simulate and analyze multiple data sets
+pop1_data <- sim(nRep = nRep, popmodel1, n = samplesize, rawData = data, lavaanfun = "lavaan", std.lv = TRUE,ordered = TRUE , estimator = "WLSMV")
+pop2_data <- sim(nRep = nRep, popmodel2, n = samplesize, rawData = data, lavaanfun = "lavaan", std.lv = TRUE,ordered = TRUE , estimator = "WLSMV")
+pop3_data <- sim(nRep = nRep, popmodel3, n = samplesize, rawData = data, lavaanfun = "lavaan", std.lv = TRUE,ordered = TRUE , estimator = "WLSMV")
+pop4_data <- sim(nRep = nRep, popmodel4, n = samplesize, rawData = data, lavaanfun = "lavaan", std.lv = TRUE,ordered = TRUE , estimator = "WLSMV")
+pop5_data <- sim(nRep = nRep, popmodel5, n = samplesize, rawData = data, lavaanfun = "lavaan", std.lv = TRUE,ordered = TRUE , estimator = "WLSMV")
 
-# Specifying simulation conditions
-nRep <- 1000
-Modeln <- c("model1", "model2", "model3", "model4", "model5")
-samplesize <- c(20, 50, 100, 250, 500, 1000)
-
-# Simulation for loop
-for (Models in Modeln) {
-  for(Observations in samplesize) {
-    # Making this analysis reproducible
-    set.seed(2429252)
-    
-    # Using simsem to simulate and analyze multiple data sets
-    Model_data <- sim(nRep = nRep, eval(as.name(Models)), n = Observations, rawData = data, lavaanfun = "lavaan", std.lv = TRUE,ordered = TRUE , estimator = "WLSMV")    
-    
-    
-    # Summarising simulation data
-    try(write.csv(100-(sum(Model_data@converged == '1') / nRep * 100),paste(Models,sep = "_",Observations,"_PercentConverge.csv")), silent = TRUE)
-    try(write.csv(Model_data@coef,paste(Models,sep = "_",Observations,"_coef.csv")), silent = TRUE)
-    try(write.csv(Model_data@se,paste(Models,sep = "_",Observations,"_se.csv")), silent = TRUE)
-    try(write.csv(Model_data@fit,paste(Models,sep = "_",Observations,"_fit.csv")), silent = TRUE)
-  }
-}
+# Write fit data to CSV file
+write.csv(pop1_data@coef,"SIM_pop_model1_coef.csv")
+write.csv(pop2_data@coef,"SIM_pop_model2_coef.csv")
+write.csv(pop3_data@coef,"SIM_pop_model3_coef.csv")
+write.csv(pop4_data@coef,"SIM_pop_model4_coef.csv")
+write.csv(pop5_data@coef,"SIM_pop_model5_coef.csv")
 

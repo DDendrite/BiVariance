@@ -1,9 +1,9 @@
 # Loading population parameters
 popmodel1 <- read.csv("SIM_pop_model1_coef.csv")
-popmodel2 <- read.csv("SIM_pop_model1_coef.csv")
-popmodel3 <- read.csv("SIM_pop_model1_coef.csv")
-popmodel4 <- read.csv("SIM_pop_model1_coef.csv")
-popmodel5 <- read.csv("SIM_pop_model1_coef.csv")
+popmodel2 <- read.csv("SIM_pop_model2_coef.csv")
+popmodel3 <- read.csv("SIM_pop_model3_coef.csv")
+popmodel4 <- read.csv("SIM_pop_model4_coef.csv")
+popmodel5 <- read.csv("SIM_pop_model5_coef.csv")
 
 # Setting up results dataframe
 results <- c("Models","Observations","ConvPer","Chi.Sq","sd_Chi.Sq","Chi.P","sd_Chi.P","CFI","sd_CFI","TLI","sd_TLI","RMSEA","sd_RMSEA","SRMR","sd_SRMR","Coverage")
