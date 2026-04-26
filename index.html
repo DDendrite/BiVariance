@@ -440,7 +440,200 @@
       }
 
 
+      /* ── FAQ ACCORDION ── */
+      .faq-group { margin-bottom: 2rem; }
+
+      .faq-group-label {
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--pink);
+        margin: 0 0 0.5rem;
+        padding-bottom: 0.4rem;
+        border-bottom: 1px solid var(--light-pink);
+      }
+
+      .faq-item { border-bottom: 1px solid var(--border); }
+      .faq-item:last-child { border-bottom: none; }
+
+      .faq-question {
+        width: 100%;
+        background: none;
+        border: none;
+        padding: 1rem 0;
+        text-align: left;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.92rem;
+        font-weight: 500;
+        color: var(--text);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        line-height: 1.5;
+      }
+
+      .faq-question:hover { color: var(--purple); }
+
+      .faq-chevron {
+        flex-shrink: 0;
+        width: 16px;
+        height: 16px;
+        color: var(--muted);
+        transition: transform 0.25s;
+      }
+
+      .faq-item.open .faq-chevron { transform: rotate(180deg); color: var(--purple); }
+
+      .faq-answer {
+        display: none;
+        padding: 0 0 1rem;
+        font-size: 0.9rem;
+        line-height: 1.7;
+        color: #3a2f42;
+      }
+
+      .faq-answer p { margin: 0 0 0.6rem; font-size: 0.9rem; }
+      .faq-answer p:last-child { margin-bottom: 0; }
+      .faq-item.open .faq-answer { display: block; }
+
+      /* ── CONTACT ── */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0 2rem;
+      }
+
+      .contact-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 1.4rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .contact-card .cc-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0.25rem;
+      }
+
+      .contact-card.pink   .cc-icon { background: var(--light-pink);   color: var(--pink); }
+      .contact-card.purple .cc-icon { background: var(--light-purple); color: var(--purple); }
+      .contact-card.blue   .cc-icon { background: var(--light-blue);   color: var(--blue); }
+
+      .contact-card .cc-title { font-weight: 500; font-size: 0.9rem; color: var(--text); }
+
+      .contact-card .cc-desc {
+        font-size: 0.83rem;
+        color: var(--muted);
+        line-height: 1.55;
+        margin: 0;
+      }
+
+      .contact-card a.cc-link {
+        font-size: 0.83rem;
+        font-weight: 500;
+        color: var(--purple);
+        text-decoration: none;
+        margin-top: auto;
+        padding-top: 0.25rem;
+      }
+
+      .contact-card a.cc-link:hover { text-decoration: underline; }
+
+      /* ── GLOSSARY ── */
+      .glossary-group { margin-bottom: 2rem; }
+
+      .glossary-group-label {
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        padding: 0 0 0.5rem;
+        margin-bottom: 0.25rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .glossary-item {
+        border-bottom: 1px solid var(--border);
+      }
+
+      .glossary-item:last-child { border-bottom: none; }
+
+      .glossary-question {
+        width: 100%;
+        background: none;
+        border: none;
+        padding: 0.9rem 0;
+        text-align: left;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.92rem;
+        font-weight: 500;
+        color: var(--text);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        line-height: 1.5;
+      }
+
+      .glossary-question:hover { color: var(--purple); }
+
+      .glossary-term {
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
+      }
+
+      .glossary-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+        padding: 0;
+      }
+
+      .glossary-item.open .glossary-answer {
+        max-height: 400px;
+        padding-bottom: 1rem;
+      }
+
+      .glossary-item.open .faq-chevron { transform: rotate(180deg); }
+
+      .glossary-answer p {
+        font-size: 0.88rem;
+        line-height: 1.7;
+        color: #3a2f42;
+        margin: 0 0 0.5rem;
+      }
+
+      .glossary-answer p:last-child { margin: 0; }
+
+      /* ── FOOTER IMAGE ── */
+      .footer-image {
+        width: 100%;
+        display: block;
+        /* ↓ Adjust max-height to taste */
+        max-height: 160px;
+        object-fit: cover;
+        object-position: center;
+      }
+
       @media (max-width: 600px) {
+        .footer-image { max-height: 100px; }
+      }
+
+
         #header { padding: 1.25rem 1.25rem 0; }
         .header-top { flex-direction: column; gap: 0.25rem; margin-bottom: 1rem; }
         .main-menu li a { padding: 0.65rem 0.85rem; font-size: 0.78rem; }
@@ -461,10 +654,15 @@
         <li><a href="#home"    class="tab-link active">home</a></li>
         <li><a href="#project" class="tab-link">the project</a></li>
         <li><a href="#methods" class="tab-link">methods</a></li>
+		<li><a href="#notes"   class="tab-link">notes</a></li>
+		<li><a href="#essay"   class="tab-link">essay</a></li>
+		<li><a href="#start"   class="tab-link">get started</a></li>
         <li><a href="#tools"   class="tab-link">tools</a></li>
-        <li><a href="#notes"   class="tab-link">notes</a></li>
-        <li><a href="#start"   class="tab-link">get started</a></li>
-        <li><a href="#essay"   class="tab-link">essay</a></li>
+        <li><a href="#faq"     class="tab-link">faq</a></li>
+        <li><a href="#glossary" class="tab-link">glossary</a></li>
+        <li><a href="#contact" class="tab-link">contact</a></li>
+        
+        
       </ul>
     </header>
 
@@ -496,6 +694,9 @@
             This is an independent, personal project. The author is not a psychologist or social scientist — they are a chemist who fell down a statistical rabbit hole and found it unexpectedly affirming. All tools used are free and open-source, and everything is shared here so that others can replicate, critique, and maybe add to it.
           </p>
 
+          <!-- ↓ Hero image: e.g. a calendar heatmap or path diagram. Replace src with images/home-hero.png -->
+          <img src="images/home-hero.png" alt="BiVariance result overview" style="width:100%; border-radius:10px; margin-top:1.5rem; border:1px solid var(--border);">
+
           <blockquote class="pull-quote" style="font-size:0.95rem; margin-top:2.5rem;">
             "The only relationships I've successfully maintained are within this dataset."
           </blockquote>
@@ -524,7 +725,7 @@
             </div>
             <div class="card purple">
               <h4>Attraction indicators</h4>
-              <p>Attraction, Romanticism, Eroticism, romantic interest, and sexual activity — each recorded daily as binary or ordinal indicators.</p>
+              <p>Attraction, fantasy, lust, romantic interest, and sexual activity — each recorded daily as binary or ordinal indicators.</p>
             </div>
             <div class="card blue">
               <h4>Gender categories</h4>
@@ -536,6 +737,9 @@
           <p>
             Attraction is unobservable. It is, in the language of statistics, a <strong>latent variable</strong> — something real and consequential, but not directly measurable. You can only get at it through the things it produces: feelings, fantasies, the way a stranger across a café might catch your eye. This makes it a natural candidate for <strong>structural equation modelling (SEM)</strong>, a family of multivariate techniques designed precisely for situations where the variables you care about most are the ones you can't directly observe.
           </p>
+
+          <!-- ↓ Descriptive stats figure: e.g. stacked bar chart of attraction by gender. Replace src with images/project-descriptives.png -->
+          <img src="images/project-descriptives.png" alt="Descriptive statistics: attraction by gender" style="width:100%; border-radius:10px; margin-top:0.5rem; border:1px solid var(--border);">
         </div>
 
         <!-- ── METHODS ── -->
@@ -546,7 +750,7 @@
 
           <h3>Structural equation modelling</h3>
           <p>
-            The core analysis uses the <code>lavaan</code> package in R. The measurement model specifies three latent variables — <strong>Attraction</strong>, <strong>Romanticism</strong>, and <strong>Eroticism</strong> — each indicated by gender-specific observed items. The structural model then examines how daily context predicts these latent constructs, and how the constructs relate to each other.
+            The core analysis uses the <code>lavaan</code> package in R. The measurement model specifies three latent variables — <strong>Attraction</strong>, <strong>Fantasy</strong>, and <strong>Lust</strong> — each indicated by gender-specific observed items. The structural model then examines how daily context predicts these latent constructs, and how the constructs relate to each other.
           </p>
 
           <div class="callout">
@@ -557,11 +761,13 @@
           <p>
             A Multiple Indicators, Multiple Causes (MIMIC) framework is used to examine how background variables — activity context, day of week, and others — influence the latent factors while accounting for measurement error. The Shiny app includes five built-in predictors and allows users to specify their own.
           </p>
-
+			<!-- ↓ Path diagram / SEM model figure. Replace src with images/methods-path-diagram.png -->
+			<img src="images/methods-path-diagram.png" alt="SEM path diagram" style="width:100%; border-radius:10px; margin-top:0.5rem; border:1px solid var(--border);">
           <h3>Simulation study</h3>
           <p>
             Because SEM estimation can be challenging with small samples, a simulation study was conducted to determine the minimum number of days that need to be tracked before the model can be estimated reliably. This informs guidance given to others who want to use the tracker and analyse their own data.
           </p>
+
         </div>
 
         <!-- ── TOOLS ── -->
@@ -587,18 +793,24 @@
 
           <h3>Getting started</h3>
           <p>
-            Download and install <a href="https://cran.r-project.org/">R</a> and <a href="https://posit.co/download/rstudio-desktop/">RStudio</a> (both free). Download the repository and extract it to a location of your choice. Run the Prerequisites script to install the required packages (<code>shiny</code>, <code>lavaan</code>, <code>DT</code>, <code>shinythemes</code>, <code>semPlot</code>), then open any script or the Shiny app from RStudio.
+            Download and install <a href="https://cran.r-project.org/">R</a> and <a href="https://posit.co/download/rstudio-desktop/">RStudio</a> (both free). Download the repository and extract it to a location of your choice. Run the Prerequisites script to install the required packages (shiny, lavaan, DT, shinythemes, semPlot), then open any script or the Shiny app from RStudio.
           </p>
 
           <h3>Using the tracker</h3>
           <p>
-            Open <code>bicycle_tracker_final.html</code> in any modern browser (Chrome, Firefox, Safari, or Edge). No installation or internet connection is required. Your data is stored locally in your browser until you export it as a CSV file, which can then be used directly with the R scripts and Shiny app.
+            Open bicycle_tracker_final.html in any modern browser (Chrome, Firefox, Safari, or Edge). No installation or internet connection is required. Your data is stored locally in your browser until you export it as a CSV file, which can then be used directly with the R scripts and Shiny app.
           </p>
+
+          <!-- ↓ Screenshot of the tracker UI. Replace src with images/tools-tracker.png -->
+          <img src="images/tools-tracker.png" alt="Screenshot of the daily tracker" style="width:100%; border-radius:10px; margin-bottom:2rem; border:1px solid var(--border);">
 
           <h3>Shiny app features</h3>
           <p>
             The app includes stacked proportional bar charts of attraction by gender displayed in bi flag colours, the full MIMIC model interface with customisable predictors, structural estimates and fit measures, a day-by-day calendar heatmap of gender-bias scores, and CSV downloads of all parameter estimates and model coefficients. It can be explored immediately using the embedded example data.
           </p>
+
+          <!-- ↓ Screenshot of the Shiny app. Replace src with images/tools-shiny-app.png -->
+          <img src="images/tools-shiny-app.png" alt="Screenshot of the Shiny app" style="width:100%; border-radius:10px; margin-top:0.5rem; border:1px solid var(--border);">
         </div>
 
         <!-- ── NOTES ── -->
@@ -621,7 +833,402 @@
           </p>
         </div>
 
-        <!-- ── GET STARTED ── -->
+        <!-- ── FAQ ── -->
+        <div id="faq" class="content-region">
+          <h2>FAQ</h2>
+          <div class="flag-bar"><span></span><span></span><span></span></div>
+          <p class="section-intro">Common questions about the project, the tracker, and the analysis.</p>
+
+          <!-- Group: About the project -->
+          <div class="faq-group">
+            <div class="faq-group-label">About the project</div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                Do I have to be bisexual to use this?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer">
+                <p>Not necessarily, but the project was designed with the bi-cycle in mind. All the research questions and statistical methods are all built around that context. That said, anyone who experiences attraction to more than one gender could use the tracker and run the analysis. The only potential issue could be if one or more gender variable for any of the factors is left empty as that would cause an error in estimation.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                Can I draw conclusions about bisexuals in general from this data?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer">
+                <p>No, that is not possible for multiple different reasons. First of all, the data collected by a person can only be used to draw conclusions about that person's pattern of attractions. Additionally, within-person analysis and between-person analysis are two completely different frameworks both statistically and substantively.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                Why SEM? Isn't that overkill?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer">
+                <p>Maybe? Structural equation modeling is a nice framework which allows relationships in data to be explored in a way not many other frameworks allow for, and in such a way that at least visually it is not necessaily that difficult to grasp. Additionally, SEM allows proposed models to be tested, which gives better insight into the quality of the data and the inferences drawn from them.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Group: Running the analysis -->
+          <div class="faq-group">
+            <div class="faq-group-label">Running the analysis</div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                My model isn't converging. What do I do?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer">
+                <p>Non-convergence is common in SEM and usually means one of a few things. It is recommended to have at least 200 observations and no empty columns. The next things to check are: near-zero variance in one or more indicators (if you almost never recorded attraction toward a particular gender, that indicator has nothing to work with), and extreme item sparsity (very few "1"s or very few "0"s on a binary item).</p>
+                <p>Try inspecting your data with the descriptive statistics tab in the Shiny app before running the model. If an indicator of a factor or a predictor has very little to no observations, the model won't be able to run. Predictors can simply be excluded in the SEM app but indicators of factors might need a closer look.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                My fit indices look bad. Should I be worried?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer">
+                <p>It depends on what "bad" means and what you're using the model for. Standard cutoffs (CFI ≥ 0.95, RMSEA ≤ 0.06) were derived from continuous, multivariate-normal data and don't map cleanly onto binary or ordinal indicators estimated with WLSMV. Some degradation in fit indices is expected. The more important question is whether the model is conceptually sound and whether the parameter estimates make sense.</p>
+                <p>If fit is very poor (CFI below 0.90, RMSEA above 0.10), it may be worth checking whether the model structure is appropriate for your data — for example, whether all three latent variables are actually identifiable given your response patterns.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                Why can't I use AIC or BIC to compare models?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer">
+                <p>WLSMV doesn't produce a true likelihood, so AIC and BIC — which are likelihood-based — are not valid under this estimator. <code>lavaan</code> will either refuse to compute them or produce meaningless values. For model comparison under WLSMV you can use the scaled difference chi-square test (for nested models) or compare fit indices like CFI and RMSEA directly. If you really need information criteria, you can temporarily refit the model using MLR, which does produce a likelihood — but note that MLR makes stronger distributional assumptions that may not hold for binary/ordinal data.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                How many days do I need to track before running the model?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer">
+                <p>The simulation study in the repository was run specifically to answer this question. Check the results there for a concrete minimum N. As a rough heuristic: more is always better, and the model is unlikely to converge reliably with fewer than a few hundred observations given the number of parameters being estimated.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Group: The tracker -->
+          <div class="faq-group">
+            <div class="faq-group-label">The tracker</div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                Is my data stored anywhere?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer">
+                <p>No. The tracker runs entirely in your browser and stores data locally using your browser's built-in storage. Nothing is sent to any server. When you export your data as CSV, that file lives on your own device. Clearing your browser data will delete your tracker history, so export regularly if you're collecting over a long period.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                What if I miss a day?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer">
+                <p>Missing data is handled in the analysis — <code>lavaan</code> with WLSMV uses pairwise present data by default. The occasional missed day is fine. If you have long gaps or missing data that isn't random (e.g. you only tracked on days when something notable happened), that's more of a concern and worth keeping in mind when interpreting results.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── GLOSSARY ── -->
+        <div id="glossary" class="content-region">
+          <h2>Glossary</h2>
+          <div class="flag-bar"><span></span><span></span><span></span></div>
+          <p class="section-intro">Key terms used throughout the project. Click any term to expand its definition.</p>
+
+          <!-- Group: Measurement & structure -->
+          <div class="glossary-group">
+            <div class="glossary-group-label">Measurement &amp; model structure</div>
+
+            <div class="glossary-item">
+              <button class="glossary-question">
+                <span class="glossary-term">Latent variable</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="glossary-answer">
+                <p>A variable that cannot be directly observed or measured. It is inferred from a set of observed indicators that it is assumed to cause. In this project, <em>attraction</em>, <em>fantasy</em>, and <em>lust</em> are latent variables — real phenomena that can only be accessed through the things they produce, such as recorded feelings or behaviours.</p>
+              </div>
+            </div>
+
+            <div class="glossary-item">
+              <button class="glossary-question">
+                <span class="glossary-term">Observed variable / indicator</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="glossary-answer">
+                <p>A variable that is directly measured and recorded. In this project, each daily diary item — e.g. whether attraction toward men was recorded as present or absent — is an observed indicator. Multiple indicators are combined in the measurement model to estimate the underlying latent variable.</p>
+              </div>
+            </div>
+
+            <div class="glossary-item">
+              <button class="glossary-question">
+                <span class="glossary-term">Structural equation modelling (SEM)</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="glossary-answer">
+                <p>A family of multivariate statistical techniques that combine a <em>measurement model</em> (relating observed indicators to latent variables) with a <em>structural model</em> (specifying relationships between latent variables and/or predictors). SEM allows you to model complex, multi-variable systems while accounting for measurement error — something simpler approaches like regression cannot do.</p>
+              </div>
+            </div>
+
+            <div class="glossary-item">
+              <button class="glossary-question">
+                <span class="glossary-term">Confirmatory factor analysis (CFA)</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="glossary-answer">
+                <p>A type of SEM used to test whether a hypothesised factor structure fits the observed data. Unlike exploratory factor analysis, CFA specifies in advance which indicators belong to which latent factor. The measurement model in this project is a CFA: it pre-specifies that attraction, fantasy, and lust indicators each load onto their respective latent factors.</p>
+              </div>
+            </div>
+
+            <div class="glossary-item">
+              <button class="glossary-question">
+                <span class="glossary-term">MIMIC model</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="glossary-answer">
+                <p>Multiple Indicators, Multiple Causes. A type of SEM model where latent variables are simultaneously regressed on external predictors (the "causes") while being measured by observed indicators (the "indicators"). In this project, the MIMIC model examines how contextual variables like day of week and activity predict the latent attraction factors.</p>
+              </div>
+            </div>
+
+            <div class="glossary-item">
+              <button class="glossary-question">
+                <span class="glossary-term">Path diagram</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="glossary-answer">
+                <p>A visual representation of an SEM model. Observed variables are shown as rectangles, latent variables as ovals, and relationships as arrows. Single-headed arrows represent directional effects (regressions or factor loadings); double-headed arrows represent covariances. Path diagrams make the structure of a model readable at a glance.</p>
+              </div>
+            </div>
+
+            <div class="glossary-item">
+              <button class="glossary-question">
+                <span class="glossary-term">Daily diary method</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="glossary-answer">
+                <p>A data collection approach in which participants record information about themselves at regular intervals — typically once per day — over an extended period. This captures within-person variation over time, which cross-sectional surveys cannot. It is well-suited to studying fluctuating phenomena like mood, behaviour, or, in this case, attraction.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Group: Estimation -->
+          <div class="glossary-group">
+            <div class="glossary-group-label">Estimation</div>
+
+            <div class="glossary-item">
+              <button class="glossary-question">
+                <span class="glossary-term">WLSMV</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="glossary-answer">
+                <p>Weighted Least Squares with Mean and Variance adjustment. An estimator used in SEM when indicators are binary or ordinal rather than continuous. Unlike maximum likelihood, WLSMV does not assume multivariate normality and does not produce a true likelihood — which means AIC and BIC cannot be used for model comparison under this estimator. It is the appropriate default for data like this project's.</p>
+              </div>
+            </div>
+
+            <div class="glossary-item">
+              <button class="glossary-question">
+                <span class="glossary-term">Polychoric correlation</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="glossary-answer">
+                <p>A correlation coefficient estimated between two ordinal variables by assuming that each is a discretised version of an underlying continuous, normally distributed variable. More appropriate than Pearson correlations for ordinal or binary data. WLSMV estimation in <code>lavaan</code> uses a polychoric correlation matrix as its input.</p>
+              </div>
+            </div>
+
+            <div class="glossary-item">
+              <button class="glossary-question">
+                <span class="glossary-term">MLR</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="glossary-answer">
+                <p>Maximum Likelihood with Robust standard errors. An estimator that produces a true likelihood, making AIC and BIC valid for model comparison. However, MLR assumes approximately continuous, multivariate-normal data — an assumption that doesn't hold well for binary or ordinal indicators. It can be used temporarily to obtain information criteria, but WLSMV is more appropriate for the main analysis.</p>
+              </div>
+            </div>
+
+            <div class="glossary-item">
+              <button class="glossary-question">
+                <span class="glossary-term">Convergence</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="glossary-answer">
+                <p>An iterative estimation algorithm is said to have converged when successive iterations no longer produce meaningful changes in parameter estimates. Non-convergence — where the algorithm fails to settle on a stable solution — usually indicates insufficient data, near-zero variance in an indicator, or a model that is misspecified or too complex for the available data.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Group: Model fit -->
+          <div class="glossary-group">
+            <div class="glossary-group-label">Model fit</div>
+
+            <div class="glossary-item">
+              <button class="glossary-question">
+                <span class="glossary-term">CFI — Comparative Fit Index</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="glossary-answer">
+                <p>A fit index that compares the hypothesised model to a baseline "null" model in which all variables are uncorrelated. Values range from 0 to 1; conventionally, CFI ≥ 0.95 is considered good fit. Higher is better. Note that these cutoffs were developed for continuous data and should be interpreted cautiously for ordinal indicators estimated with WLSMV.</p>
+              </div>
+            </div>
+
+            <div class="glossary-item">
+              <button class="glossary-question">
+                <span class="glossary-term">TLI — Tucker–Lewis Index</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="glossary-answer">
+                <p>Similar to CFI, but penalises model complexity. Also known as the Non-Normed Fit Index (NNFI). Values above 0.95 are conventionally considered acceptable. Unlike CFI, TLI can exceed 1.0 in well-fitting, parsimonious models.</p>
+              </div>
+            </div>
+
+            <div class="glossary-item">
+              <button class="glossary-question">
+                <span class="glossary-term">RMSEA — Root Mean Square Error of Approximation</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="glossary-answer">
+                <p>A fit index that estimates the discrepancy between the model and the population covariance matrix, per degree of freedom. Lower is better; conventionally, RMSEA ≤ 0.06 is considered good fit and ≤ 0.08 acceptable. Unlike CFI and TLI, RMSEA penalises model complexity and rewards parsimony.</p>
+              </div>
+            </div>
+
+            <div class="glossary-item">
+              <button class="glossary-question">
+                <span class="glossary-term">SRMR — Standardised Root Mean Square Residual</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="glossary-answer">
+                <p>The average discrepancy between the observed and model-implied correlation matrix, expressed in standardised units. Values below 0.08 are conventionally considered acceptable. Unlike RMSEA, SRMR does not penalise complexity and tends to favour models with more parameters.</p>
+              </div>
+            </div>
+
+            <div class="glossary-item">
+              <button class="glossary-question">
+                <span class="glossary-term">AIC &amp; BIC</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="glossary-answer">
+                <p>The Akaike Information Criterion and Bayesian Information Criterion are likelihood-based indices used to compare competing models — lower values indicate a better balance of fit and parsimony. They are only valid when the model has been estimated using a full-information likelihood-based estimator such as MLR. They cannot be meaningfully computed under WLSMV.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Group: Data & context -->
+          <div class="glossary-group">
+            <div class="glossary-group-label">Data &amp; context</div>
+
+            <div class="glossary-item">
+              <button class="glossary-question">
+                <span class="glossary-term">Binary variable</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="glossary-answer">
+                <p>A variable that takes one of only two values — typically 0 (absent) or 1 (present). Many of the daily diary indicators in this project are binary: either a type of attraction was recorded that day, or it wasn't.</p>
+              </div>
+            </div>
+
+            <div class="glossary-item">
+              <button class="glossary-question">
+                <span class="glossary-term">Ordinal variable</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="glossary-answer">
+                <p>A variable whose values have a meaningful rank order, but where the distances between values are not assumed to be equal. A rating from 1 to 5 is ordinal — a 4 is more than a 3, but not necessarily twice as much. Treating ordinal variables as continuous (and applying methods that assume equal intervals) can distort results; polychoric correlations and WLSMV avoid this.</p>
+              </div>
+            </div>
+
+            <div class="glossary-item">
+              <button class="glossary-question">
+                <span class="glossary-term">The bi-cycle</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="glossary-answer">
+                <p>A colloquial term used in bisexual and queer communities to describe the phenomenon whereby attraction to people of different genders fluctuates over time — cycling between periods of stronger attraction toward one gender and another. It is not a clinical or formally defined construct, which is part of what makes it an interesting target for empirical measurement.</p>
+              </div>
+            </div>
+
+            <div class="glossary-item">
+              <button class="glossary-question">
+                <span class="glossary-term">Within-person variation</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="glossary-answer">
+                <p>Variation in a variable across time or occasions within the same individual, as opposed to variation between different individuals. The bi-cycle is fundamentally a within-person phenomenon — the question is how a single person's attraction changes over time, not how bisexuals differ from each other. Daily diary data is designed to capture exactly this kind of variation.</p>
+              </div>
+            </div>
+
+            <div class="glossary-item">
+              <button class="glossary-question">
+                <span class="glossary-term">Recall bias</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="glossary-answer">
+                <p>A systematic distortion in self-reported data arising from imperfect memory. People tend to remember salient, recent, or emotionally significant events more accurately than mundane ones. Daily diary methods reduce recall bias relative to retrospective surveys by collecting data close to the time of the experience.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── CONTACT ── -->
+        <div id="contact" class="content-region">
+          <h2>Contact</h2>
+          <div class="flag-bar"><span></span><span></span><span></span></div>
+          <p class="section-intro">Questions, bug reports, or just want to say hello.</p>
+
+          <div class="contact-grid">
+            <div class="contact-card pink">
+              <div class="cc-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              </div>
+              <div class="cc-title">Bug reports &amp; issues</div>
+              <p class="cc-desc">Found something broken? Open an issue on GitHub — it's the fastest way to track and fix problems.</p>
+              <!-- ↓ Replace with your GitHub issues URL -->
+              <a href="https://github.com/ddendrite/BiVariance/issues" class="cc-link" target="_blank" rel="noopener">Open an issue →</a>
+            </div>
+
+            <div class="contact-card purple">
+              <div class="cc-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="cc-title">Email</div>
+              <p class="cc-desc">For questions, feedback, or anything you'd rather not post publicly.</p>
+              <!-- ↓ Replace with your email address -->
+              <!-- ↓ Replace with your email address, e.g. href="mailto:you@example.com" -->
+              <a href="/cdn-cgi/l/email-protection#e49d8b9196a48189858d88ca878b89" class="cc-link">Send an email →</a>
+            </div>
+
+            <div class="contact-card blue">
+              <div class="cc-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              </div>
+              <div class="cc-title">Contributions</div>
+              <p class="cc-desc">Want to improve the tracker, extend the analysis, or adapt this for your own data? Pull requests are welcome.</p>
+              <!-- ↓ Replace with your GitHub repo URL -->
+              <a href="https://github.com/ddendrite/BiVariance" class="cc-link" target="_blank" rel="noopener">View the repository →</a>
+            </div>
+          </div>
+
+          <div class="callout">
+            This is a personal project maintained in spare time. Response times may vary — but genuine questions and thoughtful feedback are always appreciated.
+          </div>
+        </div>
+
+
         <div id="start" class="content-region">
           <h2>Get Started</h2>
           <div class="flag-bar"><span></span><span></span><span></span></div>
@@ -632,13 +1239,13 @@
           </p>
 
           <!-- ↓ Replace the href with your repository URL when ready -->
-          <a href="https://github.com/YOUR-USERNAME/bi-metrics" class="github-link-box" target="_blank" rel="noopener">
+          <a href="https://github.com/ddendrite/BiVariance" class="github-link-box" target="_blank" rel="noopener">
             <svg class="github-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.744 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z" fill="currentColor"/>
             </svg>
             <div>
               <span class="gh-label">bi-metrics on GitHub</span>
-              <span class="gh-sub">github.com/YOUR-USERNAME/bi-metrics</span>
+              <span class="gh-sub">github.com/ddendrite/BiVariance</span>
             </div>
           </a>
 
@@ -646,9 +1253,9 @@
           <ol class="step-list">
             <li>Download and install <a href="https://cran.r-project.org/">R</a> and <a href="https://posit.co/download/rstudio-desktop/">RStudio</a> — both are free.</li>
             <li>Download or clone the repository and extract it to a location of your choice.</li>
-            <li>Open RStudio and run the <code>prerequisites.R</code> script to install required packages (<code>shiny</code>, <code>lavaan</code>, <code>DT</code>, <code>shinythemes</code>, <code>semPlot</code>).</li>
+            <li>Open RStudio and run the prerequisites.R script to install required packages (shiny, lavaan, DT, shinythemes, semPlot).</li>
             <li>Open any R script or the Shiny app directly from the folder in RStudio. The Shiny app comes preloaded with the example dataset — no upload needed to explore it.</li>
-            <li>To collect your own data, open <code>bicycle_tracker_final.html</code> in any modern browser. No installation or internet connection required. Export your data as CSV when you're ready to analyse it.</li>
+            <li>To collect your own data, open bicycle_tracker_final.html in any modern browser. No installation or internet connection required. Export your data as CSV when you're ready to analyse it.</li>
           </ol>
 
           <div class="callout" style="margin-top: 2rem;">
@@ -675,30 +1282,50 @@
           </div>
 
           <div class="pdf-embed-wrapper">
-            <!-- ↓ Replace src with the path to your PDF file, e.g. "essay.pdf" -->
-            <iframe src="essay.pdf" title="BiVariance Essay">
-              <!-- Shown if the browser can't render the iframe -->
-              <div class="pdf-placeholder">
-                <div class="pdf-icon">📄</div>
-                <p>Your browser can't display PDFs inline.</p>
-                <p><a href="essay.pdf">Download the essay here.</a></p>
-              </div>
-            </iframe>
+            <iframe src="essay.pdf" title="BiVariance Essay" style="display:block;width:100%;height:75vh;min-height:500px;border:none;"></iframe>
           </div>
 
           <p style="margin-top: 1rem; font-size: 0.82rem; color: var(--muted);">
-            If the essay doesn't load, try the download or open-in-new-tab buttons above. Some browsers block inline PDFs depending on their security settings.
+            <!-- Once essay.pdf is in the repo, replace the div.pdf-embed-wrapper contents above with:
+            <iframe src="essay.pdf" title="BiVariance Essay" style="display:block;width:100%;height:75vh;min-height:500px;border:none;"></iframe>
+            -->
+            Once the essay is added to the repository, it will be embedded here with download and full-page view options.
           </p>
         </div>
 
+      </div>
+    </div>
 
+    <footer>
+      <!-- ↓ Replace src with images/footer-wave.png (or .svg) — your fluctuation visualisation -->
+      <img src="images/footer-wave.png" alt="" class="footer-image" aria-hidden="true">
       <div class="footer-flag">
         <span></span><span></span><span></span>
       </div>
       BiVariance &nbsp;·&nbsp; an independent personal project
     </footer>
 
-    <script type="text/javascript">
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript">
+      document.querySelectorAll('.glossary-question').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var item = this.closest('.glossary-item');
+          var isOpen = item.classList.contains('open');
+          document.querySelectorAll('.glossary-item.open').forEach(function(i) { i.classList.remove('open'); });
+          if (!isOpen) item.classList.add('open');
+        });
+      });
+
+      document.querySelectorAll('.faq-question').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var item = this.closest('.faq-item');
+          var isOpen = item.classList.contains('open');
+          // Close all
+          document.querySelectorAll('.faq-item.open').forEach(function(i) { i.classList.remove('open'); });
+          // Toggle clicked
+          if (!isOpen) item.classList.add('open');
+        });
+      });
+
       document.querySelectorAll('.tab-link').forEach(function(link) {
         link.addEventListener('click', function(e) {
           e.preventDefault();
