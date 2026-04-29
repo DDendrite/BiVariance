@@ -1,4 +1,4 @@
-# Bi-Metrics 🚲
+# BiVariance 🚲
  
 > *"Are you straight or gay?"*
 > *"Hold on, let me get my data."*
